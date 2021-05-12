@@ -12,3 +12,10 @@ def plot_x_by_class_y(*, table, x_column, y_column):
 
   pd.crosstab(table[x_column], table[y_column]).plot(kind='bar', figsize=(15,8), grid=True, logy=True)
   return None
+
+import statistics as stats
+def median_split(*, numeric_list):
+  med = stats.median(numeric_list)
+  lower = [item for item in numeric_list if item < med]
+  upper = [item for item in numeric_list if item > med]
+  return lower, upper
